@@ -1,4 +1,4 @@
-# 悬浮球快捷工具 (Floating Ball Utility)
+# 悬浮球快捷工具
 
 ## 功能概述
 
@@ -17,31 +17,17 @@
   - 快速打开常用网站
   - 便捷访问系统文件夹
 
-## 安装与使用
-
-### 依赖安装
-
-```bash
-pip install PyQt5
-```
-
-### 运行程序
-
-```bash
-python main.py
-```
-
 ## 功能菜单说明
 
 ### 主菜单项
 
 - **mstsc**：打开远程桌面连接
-- **写代码**：子菜单，包含各种代码项目
+- **代码**：子菜单，包含各种代码项目
 - **网站**：子菜单，快速访问常用网站
 - **文档**：子菜单，快速访问系统文件夹
 - **退出**：关闭悬浮球程序
 
-### 写代码子菜单
+### 代码子菜单
 
 - LeetCode：打开 LeetCode 学习项目和网站
 - AutoWork：打开 AutoWork 项目
@@ -67,10 +53,8 @@ python main.py
 修改代码中的以下路径以适应您的系统环境：
 
 ```python
-# 基础路径
-self.BASE_DIR = Path("D:/My Programs")
-
 # 项目路径
+self.BASE_DIR = Path("D:/My Programs")
 self.code_work = self.BASE_DIR / "AutoWork"
 self.code_ui = self.BASE_DIR / "Desk UI"
 self.code_box = self.BASE_DIR / "FaunaBox"
@@ -89,3 +73,17 @@ self.baidu_path = "D:/BaiduNetdiskDownload"
 ## 已知问题
 
 - 程序启动时悬浮球位置固定为 (2000, 200)，可能需要根据屏幕分辨率调整
+
+## 安装与使用
+
+### 依赖安装
+
+```bash
+pip install PyQt5
+```
+
+### 运行程序
+
+```bash
+python main.py
+```
