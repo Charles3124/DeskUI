@@ -1,5 +1,5 @@
-import sys
 import os
+import sys
 import subprocess
 from pathlib import Path
 from typing import Callable
@@ -56,7 +56,7 @@ class FloatingBall(QWidget):
         # 路径和网址
         self.BASE_DIR = Path("D:/My Programs")
         self.code_work = self.BASE_DIR / "AutoWork"
-        self.code_ui = self.BASE_DIR / "Desk UI"
+        self.code_ui = self.BASE_DIR / "DeskUI"
         self.code_box = self.BASE_DIR / "FaunaBox"
         self.code_folio = self.BASE_DIR / "MyPortfolio"
         self.code_stock = self.BASE_DIR / "Stock Indicators"
@@ -106,6 +106,7 @@ class FloatingBall(QWidget):
         self.menu.addAction(action)
 
     def add_sub_menu_item(self, title: str, actions: dict[str, Callable[[], None]]) -> None:
+        """添加子菜单"""
         temp_menu = QMenu(title, self.menu)
         for subtitle, func in actions.items():
             action = QAction(subtitle, self)
