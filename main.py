@@ -79,7 +79,7 @@ class FloatingBall(QWidget):
             "Portfolio": lambda: open_path_in_vscode(self.code_folio),
             "Stock": lambda: open_path_in_vscode(self.code_stock),
         }
-        self.add_sub_menu_item("写代码", code_actions)
+        self.add_sub_menu_item("代码", code_actions)
 
         # 网站子菜单
         edge_actions = {
@@ -169,7 +169,7 @@ class FloatingBall(QWidget):
 
         # 4. 悬停特效（边框变亮或加发光感）
         if self.under_mouse:
-            border_color = QColor(0, 150, 255)  # 悬停变成亮蓝色
+            border_color = QColor(200, 200, 200)
 
         # 5. 绘制边框
         pen = QPen(border_color)
