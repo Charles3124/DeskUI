@@ -1,6 +1,11 @@
+# image_crop.py
+"""裁剪图片至目标大小"""
+
 from PIL import Image
 
+
 def crop_and_resize_image(input_path: str, output_path: str, size: int = 60) -> None:
+    """在中心位置裁剪图片"""
     img = Image.open(input_path)
 
     # 居中裁剪为正方形
@@ -19,4 +24,6 @@ def crop_and_resize_image(input_path: str, output_path: str, size: int = 60) -> 
     img_resized.save(output_path)
     print(f"处理完成，保存为：{output_path}")
 
-crop_and_resize_image("data/icon.png", "data/icon_cropped.png", size=60)
+
+if __name__ == '__main__':
+    crop_and_resize_image("data/icon.png", "data/icon_cropped.png", size=60)

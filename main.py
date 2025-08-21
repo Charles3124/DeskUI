@@ -1,3 +1,6 @@
+# main.py
+"""桌面控件主程序"""
+
 import os
 import sys
 import subprocess
@@ -8,7 +11,9 @@ from PyQt5.QtCore import Qt, QTimer, QPoint, QEvent
 from PyQt5.QtWidgets import QApplication, QWidget, QMenu, QAction
 from PyQt5.QtGui import QPainter, QColor, QPixmap, QPainterPath, QPen, QMouseEvent, QPaintEvent
 
+
 class FloatingBall(QWidget):
+    """实现桌面控件的界面及相关函数调用"""
 
     def __init__(self):
         super().__init__()
@@ -188,18 +193,22 @@ class FloatingBall(QWidget):
         self.under_mouse = False
         self.update()
 
+
 def open_url_in_edge(url: str) -> None:
     """打开网页"""
     subprocess.Popen(f'start msedge {url}', shell=True)
+
 
 def open_path_in_vscode(project_dir: str, vscode_path: str = "D:/Program Files (x86)/Microsoft VS Code/Code.exe") -> None:
     """打开 VsCode 项目"""
     subprocess.Popen([vscode_path, project_dir])
 
+
 def learn_leetcode() -> None:
     """学习力扣"""
     open_path_in_vscode("D:/Machine Learning/LeetCode")
     open_url_in_edge("https://leetcode.cn/problemset/")
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
