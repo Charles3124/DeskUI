@@ -1,5 +1,10 @@
-# main.py
-"""桌面控件主程序"""
+"""
+main.py
+
+功能: 桌面控件主程序
+时间: 2025/12/01
+版本: 1.0
+"""
 
 import os
 import sys
@@ -56,9 +61,10 @@ class FloatingBall(QWidget):
             }
             """
         )
-        self.icon_path = "data/icon.png"
 
         # 路径和网址
+        self.ICON_PATH = "data/icon.png"
+
         self.BASE_DIR = Path("D:/My Programs")
         self.code_work = self.BASE_DIR / "AutoWork"
         self.code_ui = self.BASE_DIR / "DeskUI"
@@ -112,12 +118,12 @@ class FloatingBall(QWidget):
 
     def add_sub_menu_item(self, title: str, actions: dict[str, Callable[[], None]]) -> None:
         """添加子菜单"""
-        temp_menu = QMenu(title, self.menu)
+        sub_menu = QMenu(title, self.menu)
         for subtitle, func in actions.items():
             action = QAction(subtitle, self)
             action.triggered.connect(func)
-            temp_menu.addAction(action)
-        self.menu.addMenu(temp_menu)
+            sub_menu.addAction(action)
+        self.menu.addMenu(sub_menu)
 
     def start_drag(self) -> None:
         """开始拖拽悬浮球"""
@@ -165,7 +171,7 @@ class FloatingBall(QWidget):
         painter.setClipPath(path)
 
         # 2. 贴图（缩放 + 绘制）
-        pixmap = QPixmap(self.icon_path)
+        pixmap = QPixmap(self.ICON_PATH)
         pixmap = pixmap.scaled(self.size(), Qt.KeepAspectRatioByExpanding, Qt.SmoothTransformation)
         painter.drawPixmap(0, 0, pixmap)
 
@@ -196,7 +202,7 @@ class FloatingBall(QWidget):
 
 def open_url_in_edge(url: str) -> None:
     """打开网页"""
-    subprocess.Popen(f'start msedge {url}', shell=True)
+    subprocess.Popen(f"start msedge {url}", shell=True)
 
 
 def open_path_in_vscode(project_dir: str, vscode_path: str = "D:/Program Files (x86)/Microsoft VS Code/Code.exe") -> None:
@@ -210,7 +216,7 @@ def learn_leetcode() -> None:
     open_url_in_edge("https://leetcode.cn/problemset/")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app = QApplication(sys.argv)
     ball = FloatingBall()
     ball.move(2000, 200)
