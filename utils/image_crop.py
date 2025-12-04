@@ -1,5 +1,10 @@
-# image_crop.py
-"""裁剪图片至目标大小"""
+"""
+image_crop.py
+
+功能: 裁剪图片至目标大小
+时间: 2025/12/04
+版本: 1.0
+"""
 
 from PIL import Image
 
@@ -25,5 +30,9 @@ def crop_and_resize_image(input_path: str, output_path: str, size: int = 60) -> 
     print(f"处理完成，保存为：{output_path}")
 
 
-if __name__ == '__main__':
-    crop_and_resize_image("data/icon.png", "data/icon_cropped.png", size=60)
+if __name__ == "__main__":
+    crop_and_resize_image(
+        input_path="data/icon.png",
+        output_path="data/icon_cropped.png",
+        size=60
+    )
